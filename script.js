@@ -7,24 +7,19 @@ document.getElementById('startBtn').addEventListener('click', function() {
     document.getElementById('speakBtn').disabled = false;
 });
 
-if ('speechSynthesis' in window) {
-    // サポートされている場合の処理
-} else {
-    alert("このブラウザは音声合成をサポートしていません。");
-}
-
 
 document.getElementById('speakBtn').addEventListener('click', function() {
     const number = document.getElementById('numberDisplay').textContent;
-
-    // 数字を日本語の文字列に変換
     const japaneseNumber = convertNumberToJapanese(number);
 
-    // 数字を日本語で発音
+    // 音声合成のためのオブジェクトを作成
     const speech = new SpeechSynthesisUtterance(japaneseNumber);
     speech.lang = 'ja-JP';
+
+    // 音声の再生
     window.speechSynthesis.speak(speech);
 });
+
 
 // 数字を日本語に変換する関数
 function convertNumberToJapanese(number) {
