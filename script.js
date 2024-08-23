@@ -7,6 +7,13 @@ document.getElementById('startBtn').addEventListener('click', function() {
     document.getElementById('speakBtn').disabled = false;
 });
 
+if ('speechSynthesis' in window) {
+    // サポートされている場合の処理
+} else {
+    alert("このブラウザは音声合成をサポートしていません。");
+}
+
+
 document.getElementById('speakBtn').addEventListener('click', function() {
     const number = document.getElementById('numberDisplay').textContent;
 
