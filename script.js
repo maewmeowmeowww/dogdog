@@ -1,10 +1,3 @@
-if ('speechSynthesis' in window) {
-    console.log('SpeechSynthesis API is supported.');
-} else {
-    console.log('SpeechSynthesis API is not supported.');
-}
-
-
 document.getElementById('startBtn').addEventListener('click', function() {
     // 4桁の数字をランダムに生成
     const randomNumber = Math.floor(1000 + Math.random() * 9000).toString();
